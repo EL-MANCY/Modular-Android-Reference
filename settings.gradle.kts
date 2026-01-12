@@ -21,4 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "Modular-Android-Reference"
 include(":app")
-include(":caching")
+include(":core:caching")
+include(":core:presentation")

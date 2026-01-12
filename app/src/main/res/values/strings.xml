@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Modular-Android-Reference</string>
     <string name="caching_module_test">Caching Module Test</string>
-    <string name="enter_a_token">Enter a token</string>
+    <string name="enter_a_token">Enter Ur Name</string>
     <string name="save_to_datastore">Save to DataStore</string>
-    <string name="current_token_loading">Current Token: Loading...</string>
+    <string name="current_token_loading">Current Data: Loading...</string>
 </resources>

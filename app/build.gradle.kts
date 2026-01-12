@@ -43,10 +43,13 @@ android {
             }
         }
     }
+
+    buildFeatures.viewBinding = true
 }
 
 dependencies {
-    implementation(project(":caching"))
+    implementation(project(":core:caching"))
+    implementation(project(":core:presentation"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
