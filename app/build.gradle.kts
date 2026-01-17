@@ -66,4 +66,7 @@ dependencies {
     /** 3. Koin Annotations **/
     implementation(libs.koin.annotations)
     ksp(libs.koin.ksp.compiler)
+
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
 }
