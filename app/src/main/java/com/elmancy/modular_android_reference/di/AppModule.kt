@@ -4,5 +4,5 @@ import org.koin.core.annotation.ComponentScan
 import org.koin.core.annotation.Module
 
 @Module
-@ComponentScan("com.elmancy.modular_android_reference")
+@ComponentScan("com.elmancy")
 class AppModule
