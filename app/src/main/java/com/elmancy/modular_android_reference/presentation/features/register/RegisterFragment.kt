@@ -33,9 +33,12 @@ class RegisterFragment : CoreFragment<FragmentRegisterBinding>(FragmentRegisterB
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.events.collect { result ->
                 when (result) {
+                    is AuthViewModel.AuthEvent.Loading -> {
+                        binding.button.isLoading(result.isLoading)
+                    }
+
                     is AuthViewModel.AuthEvent.Success -> {
                         Toast.makeText(context, result.message, Toast.LENGTH_SHORT).show()
-                        findNavController().navigate(R.id.RegisterToSignInNav)
                     }
 
                     is AuthViewModel.AuthEvent.Error -> {

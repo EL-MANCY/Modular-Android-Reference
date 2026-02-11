@@ -132,7 +132,7 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
+    <com.elmancy.presentation.core_components.CoreButton
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="48dp"
@@ -140,10 +140,11 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/btn_primary_bg"
-        android:text="@string/register"
+        app:coreText="@string/register"
         android:textColor="?attr/colorOnPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordInputLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordInputLayout"
+        app:loadingRawRes="@raw/loading_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,7 +22,6 @@ class SignInFragment : CoreFragment<FragmentSignInBinding>(FragmentSignInBinding
         binding.button.setOnClickListener {
             val name = binding.editTextText.text.toString()
             val pass = binding.passwordInputLayout.editText?.text.toString()
-
             viewModel.login(name, pass)
         }
 
@@ -33,6 +32,9 @@ class SignInFragment : CoreFragment<FragmentSignInBinding>(FragmentSignInBinding
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.events.collect { result ->
                 when (result) {
+                    is AuthViewModel.AuthEvent.Loading -> {
+                        binding.button.isLoading(result.isLoading)
+                    }
                     is AuthViewModel.AuthEvent.Success -> {
                         Toast.makeText(context, result.message, Toast.LENGTH_SHORT).show()
                     }
