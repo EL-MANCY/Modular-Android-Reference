@@ -20,8 +20,8 @@ class RegisterFragment : CoreFragment<FragmentRegisterBinding>(FragmentRegisterB
         super.onViewCreated(view, savedInstanceState)
 
         binding.button.setOnClickListener {
-            val name = binding.editTextText.text.toString()
-            val pass = binding.passwordInputLayout.editText?.text.toString()
+            val name = binding.editTextText.text
+            val pass = binding.etPassword.text
 
             viewModel.register(name, pass)
         }

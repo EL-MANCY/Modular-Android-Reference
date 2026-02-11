@@ -19,9 +19,9 @@ class SignInFragment : CoreFragment<FragmentSignInBinding>(FragmentSignInBinding
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.button.setOnClickListener {
-            val name = binding.editTextText.text.toString()
-            val pass = binding.passwordInputLayout.editText?.text.toString()
+        binding.btnSignIn.setOnClickListener {
+            val name = binding.editTextText.text
+            val pass = binding.etPassword.text
             viewModel.login(name, pass)
         }
 
@@ -33,7 +33,7 @@ class SignInFragment : CoreFragment<FragmentSignInBinding>(FragmentSignInBinding
             viewModel.events.collect { result ->
                 when (result) {
                     is AuthViewModel.AuthEvent.Loading -> {
-                        binding.button.isLoading(result.isLoading)
+                        binding.btnSignIn.isLoading(result.isLoading)
                     }
                     is AuthViewModel.AuthEvent.Success -> {
                         Toast.makeText(context, result.message, Toast.LENGTH_SHORT).show()
