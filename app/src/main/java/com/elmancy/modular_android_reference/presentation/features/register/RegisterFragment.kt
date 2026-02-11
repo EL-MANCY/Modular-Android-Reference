@@ -5,7 +5,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.elmancy.core.presentation.R
+import com.elmancy.modular_android_reference.R
 import com.elmancy.modular_android_reference.databinding.FragmentRegisterBinding
 import com.elmancy.presentation.fragment.CoreFragment
 import kotlinx.coroutines.launch
