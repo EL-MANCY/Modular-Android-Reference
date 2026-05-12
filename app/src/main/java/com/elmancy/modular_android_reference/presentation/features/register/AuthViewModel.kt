@@ -24,7 +24,7 @@ class AuthViewModel(
             delay(1000)
 
             val newUser = User(username, pass)
-            repository.save("CURRENT_USER", newUser)
+            repository.save("CURRENT_USER", newUser, User.serializer())
 
             sendEvent(AuthEvent.Success("Registration Successful"))
             sendEvent(AuthEvent.Loading(false))
@@ -35,12 +35,10 @@ class AuthViewModel(
         launchCore {
             sendEvent(AuthEvent.Loading(true))
 
-            val savedUser = repository.get("CURRENT_USER", User::class.java).firstOrNull()
+            val savedUser = repository.get("CURRENT_USER", User.serializer()).firstOrNull()
             delay(1500)
 
-            if (savedUser == null) {
-                sendEvent(AuthEvent.Error("No user found. Please register."))
-            } else if (savedUser.username == username && savedUser.password == pass) {
+            if (savedUser?.username == username && savedUser.password == pass) {
                 sendEvent(AuthEvent.Success("Login Successful!"))
             } else {
                 sendEvent(AuthEvent.Error("Wrong credentials"))
