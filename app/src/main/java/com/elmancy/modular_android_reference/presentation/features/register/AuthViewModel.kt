@@ -10,7 +10,7 @@ import org.koin.android.annotation.KoinViewModel
 @KoinViewModel
 class AuthViewModel(
     private val repository: CachingRepository
-) : CoreViewModel<AuthViewModel.AuthEvent>() {
+) : CoreViewModel<AuthViewModel.AuthEvent, User>() {
 
     fun register(username: String, pass: String) {
         launchCore {
