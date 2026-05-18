@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/auth_graph"
+    app:startDestination="@id/signInFragment">
+
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.elmancy.feature.auth.presentation.login.SignInFragment"
+        android:label="fragment_sign_in"
+        tools:layout="@layout/feature_auth_fragment_sign_in">
+        <action
+            android:id="@+id/SignInToRegisterNav"
+            app:destination="@id/registerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.elmancy.feature.auth.presentation.register.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/feature_auth_fragment_register">
+        <action
+            android:id="@+id/RegisterToSignInNav"
+            app:destination="@id/signInFragment" />
+    </fragment>
+</navigation>
+

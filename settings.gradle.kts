@@ -23,3 +23,6 @@ rootProject.name = "Modular-Android-Reference"
 include(":app")
 include(":core:caching")
 include(":core:presentation")
+include(":core:network")
+include(":feature:auth")
+include(":feature:jsonplaceholder")

@@ -2,6 +2,8 @@ package com.elmancy.modular_android_reference
 
 import android.app.Application
 import com.elmancy.caching.di.StorageModule
+import com.elmancy.feature.auth.di.AuthModule
+import com.elmancy.feature.jsonplaceholderService.di.JsonPlaceholderModule
 import com.elmancy.modular_android_reference.di.AppModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
@@ -15,7 +17,9 @@ class MyApplication : Application() {
             androidContext(this@MyApplication)
             modules(
                 StorageModule().module,
-                AppModule().module
+                AppModule().module,
+                AuthModule().module,
+                JsonPlaceholderModule().module
             )
         }
     }

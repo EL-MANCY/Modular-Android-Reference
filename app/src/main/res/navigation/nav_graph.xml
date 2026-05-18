@@ -1,26 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/signInFragment">
+    app:startDestination="@id/auth_graph">
 
-    <fragment
-        android:id="@+id/signInFragment"
-        android:name="com.elmancy.modular_android_reference.presentation.features.login.SignInFragment"
-        android:label="fragment_sign_in"
-        tools:layout="@layout/fragment_sign_in">
-        <action
-            android:id="@+id/SignInToRegisterNav"
-            app:destination="@id/registerFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/registerFragment"
-        android:name="com.elmancy.modular_android_reference.presentation.features.register.RegisterFragment"
-        android:label="fragment_register"
-        tools:layout="@layout/fragment_register">
-        <action
-            android:id="@+id/RegisterToSignInNav"
-            app:destination="@id/signInFragment" />
-    </fragment>
+    <include app:graph="@navigation/feature_auth_nav_graph" />
 </navigation>

@@ -1,24 +1,20 @@
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.ksp)
 }
 
 android {
-    namespace = "com.elmancy.modular_android_reference"
+    namespace = "com.elmancy.feature.auth"
     compileSdk {
         version = release(36)
     }
 
     defaultConfig {
-        applicationId = "com.elmancy.modular_android_reference"
         minSdk = 24
-        targetSdk = 36
-        versionCode = 1
-        versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -30,14 +26,17 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     kotlinOptions {
         jvmTarget = "11"
     }
-    applicationVariants.all {
+
+    libraryVariants.all {
         sourceSets {
             getByName(name) {
                 kotlin.srcDir("build/generated/ksp/$name/kotlin")
@@ -51,26 +50,20 @@ android {
 dependencies {
     implementation(project(":core:caching"))
     implementation(project(":core:presentation"))
-    implementation(project(":feature:auth"))
-    implementation(project(":feature:jsonplaceholder"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    implementation(libs.androidx.activity)
-    implementation(libs.androidx.constraintlayout)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.kotlinx.coroutines.android)
 
     /** Koin **/
     implementation(libs.koin.android)
 
-    /** 3. Koin Annotations **/
+    /** Koin Annotations **/
     implementation(libs.koin.annotations)
     ksp(libs.koin.ksp.compiler)
-
-    implementation(libs.androidx.navigation.fragment.ktx)
-    implementation(libs.androidx.navigation.ui.ktx)
-    implementation(libs.kotlinx.serialization.json)
 }
+
